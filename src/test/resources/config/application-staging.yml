@@ -1,0 +1,8 @@
+# ==============================================
+# STAGING environment overrides
+# ==============================================
+
+rest:
+  base-url: https://staging-api.example.com
+  relaxed-https: false
+  timeout-ms: 15000

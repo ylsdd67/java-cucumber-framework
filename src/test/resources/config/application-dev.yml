@@ -1,0 +1,7 @@
+# ==============================================
+# DEV environment overrides
+# ==============================================
+
+rest:
+  base-url: https://jsonplaceholder.typicode.com
+  relaxed-https: true

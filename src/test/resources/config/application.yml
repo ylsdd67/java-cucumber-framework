@@ -1,0 +1,27 @@
+# ==============================================
+# Base Configuration — shared across environments
+# ==============================================
+
+rest:
+  base-url: https://jsonplaceholder.typicode.com
+  relaxed-https: false
+  timeout-ms: 30000
+
+# Future protocol configs (uncomment when needed):
+# soap:
+#   base-url: http://localhost:8080/ws
+#   timeout-ms: 30000
+#
+# mqtt:
+#   broker-url: tcp://localhost:1883
+#   client-id: test-framework
+#   qos: 1
+#   timeout-sec: 10
+#
+# kafka:
+#   bootstrap-servers: localhost:9092
+#   group-id: test-framework
+#   auto-offset-reset: earliest
+
+logging:
+  level: INFO
