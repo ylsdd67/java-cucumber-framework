@@ -18,6 +18,7 @@
         <maven.compiler.target>21</maven.compiler.target>
 
         <!-- Dependency versions -->
+        <spring-boot.version>3.4.3</spring-boot.version>
         <cucumber.version>7.20.1</cucumber.version>
         <rest-assured.version>5.5.0</rest-assured.version>
         <junit5.version>5.11.4</junit5.version>
@@ -37,7 +38,35 @@
         <cucumber.filter.tags>@rest</cucumber.filter.tags>
     </properties>
 
+    <!-- ============================== -->
+    <!-- Spring Boot BOM (dependency management only, no parent) -->
+    <!-- ============================== -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
+        <!-- ==================== -->
+        <!-- Spring Boot          -->
+        <!-- ==================== -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
         <!-- ==================== -->
         <!-- Cucumber BDD         -->
         <!-- ==================== -->
@@ -54,9 +83,8 @@
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-picocontainer</artifactId>
+            <artifactId>cucumber-spring</artifactId>
             <version>${cucumber.version}</version>
-            <scope>test</scope>
         </dependency>
 
         <!-- ==================== -->

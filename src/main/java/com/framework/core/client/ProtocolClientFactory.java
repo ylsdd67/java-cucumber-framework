@@ -3,6 +3,7 @@ package com.framework.core.client;
 import com.framework.core.config.ConfigManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import java.util.Map;
 import java.util.ServiceLoader;
@@ -19,6 +20,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * For simpler setups, clients can also be registered programmatically
  * via {@link #register(String, Class)}.
  */
+@Component
 public class ProtocolClientFactory {
 
     private static final Logger log = LoggerFactory.getLogger(ProtocolClientFactory.class);

@@ -2,6 +2,7 @@ package com.framework.core.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.InputStream;
@@ -24,6 +25,7 @@ import java.util.Map;
  *   <li>Base YAML file</li>
  * </ol>
  */
+@Component
 public class ConfigManager {
 
     private static final Logger log = LoggerFactory.getLogger(ConfigManager.class);

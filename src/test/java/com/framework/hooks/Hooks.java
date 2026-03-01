@@ -10,8 +10,8 @@ import org.slf4j.LoggerFactory;
 /**
  * Cucumber hooks that run before/after each scenario.
  * <p>
- * TestContext is injected by PicoContainer — each scenario
- * gets a fresh instance automatically.
+ * TestContext is injected by Spring's DI container — each scenario
+ * gets a fresh instance automatically via {@code @ScenarioScope}.
  */
 public class Hooks {
 

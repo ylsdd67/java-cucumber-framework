@@ -24,4 +24,5 @@ rest:
 #   auto-offset-reset: earliest
 
 logging:
-  level: INFO
+  level:
+    root: INFO

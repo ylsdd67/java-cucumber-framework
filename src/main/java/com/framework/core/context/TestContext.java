@@ -4,13 +4,15 @@ import com.framework.core.client.ProtocolClientFactory;
 import com.framework.core.client.ProtocolRequest;
 import com.framework.core.client.ProtocolResponse;
 import com.framework.core.config.ConfigManager;
+import io.cucumber.spring.ScenarioScope;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Scenario-scoped test context shared across step definitions via
- * Cucumber's PicoContainer dependency injection.
+ * Spring's dependency injection with {@code @ScenarioScope}.
  * <p>
  * Each Cucumber scenario gets its own TestContext instance, so tests
  * are fully isolated.
@@ -23,6 +25,8 @@ import java.util.Map;
  *   <li>Access to the protocol client factory</li>
  * </ul>
  */
+@Component
+@ScenarioScope
 public class TestContext {
 
     private final ConfigManager config;
@@ -34,9 +38,9 @@ public class TestContext {
     /** Shared key-value store for passing data between steps */
     private final Map<String, Object> scenarioData = new HashMap<>();
 
-    public TestContext() {
-        this.config = new ConfigManager();
-        this.clientFactory = new ProtocolClientFactory(config);
+    public TestContext(ConfigManager config, ProtocolClientFactory clientFactory) {
+        this.config = config;
+        this.clientFactory = clientFactory;
     }
 
     // ---- Config & Factory ----
